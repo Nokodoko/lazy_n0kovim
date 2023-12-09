@@ -6,7 +6,7 @@ return {
   { "vimwiki/vimwiki" },
   { "jackMort/ChatGPT.nvim" },
   { "munifTanjim/nui.nvim" },
-  { "echasnovski/mini.surround" },
+  { "tpope/vim-surround" },
 
   --{ "tpope/vim-surround" }
   -- Configure LazyVim to load gruvbox
@@ -33,14 +33,14 @@ return {
     config = true,
   },
 
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
-    end,
-  },
+  --{
+  --  "hrsh7th/nvim-cmp",
+  --  dependencies = { "hrsh7th/cmp-emoji" },
+  --  ---@param opts cmp.ConfigSchema
+  --  opts = function(_, opts)
+  --    table.insert(opts.sources, { name = "emoji" })
+  --  end,
+  --},
 
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:

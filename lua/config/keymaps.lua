@@ -15,6 +15,7 @@ local keymap = vim.api.nvim_set_keymap
 
 -- WRITE && QUIT (different modes of quit)
 keymap("n", "<F3>", "<cmd>w!<cr>", opts)
+keymap("i", "<F3>", "<cmd>w!<cr>", opts)
 keymap("n", "Q", "<cmd>q!<cr>", opts)
 keymap("n", "<BS>", "<cmd>bd<cr>", opts)
 
