@@ -65,6 +65,8 @@ local config = {
     toggle_settings = "<C-o>",
     new_session = "<C-n>",
     cycle_windows = "<Tab>",
+    submit = "<Enter>",
+    submit_n = "<C-Enter>",
   },
 }
 

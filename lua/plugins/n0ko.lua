@@ -8,11 +8,11 @@ return {
   { "munifTanjim/nui.nvim" },
   { "tpope/vim-surround" },
 
-  --{ "tpope/vim-surround" }
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
+      --colorscheme = "gruvbox",
       colorscheme = "tokyodark",
     },
   },
@@ -33,6 +33,12 @@ return {
     config = true,
   },
 
+  -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
+  -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
+  { import = "lazyvim.plugins.extras.lang.typescript" },
+  { import = "lazyvim.plugins.extras.ui.alpha" },
+  { import = "lazyvim.plugins.extras.lang.json" },
+
   --{
   --  "hrsh7th/nvim-cmp",
   --  dependencies = { "hrsh7th/cmp-emoji" },
@@ -41,13 +47,6 @@ return {
   --    table.insert(opts.sources, { name = "emoji" })
   --  end,
   --},
-
-  -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
-  -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
-  { import = "lazyvim.plugins.extras.lang.typescript" },
-  { import = "lazyvim.plugins.extras.ui.alpha" },
-  { import = "lazyvim.plugins.extras.lang.json" },
-
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   --{

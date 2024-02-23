@@ -1,7 +1,21 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
---
+--    (lua autocommands)autocmd FileType lua inoremap i local status_ok, = pcall(require, "")<cr>if not status_ok then<cr>return<cr>end<esc>3kf,a
+--    (lua autocommands)autocmd FileType lua inoremap <leader>mi local modules = {}<cr>local <cr><cr><cr>for i, module in ipairs(modules)do<cr>local status_ok, required_module = pcall(require, module)<cr>if not status_ok then<cr>print("Could not import" .. module)<cr>return<cr>end<cr><cr>if i == 1 then<cr> = required_module<cr>end<cr>end<esc>14kci{
+--    (python autocommands)autocmd FileType python inoremap ca case in<esc>o;;<esc>oesac
+--    (python autocommands) autocmd FileType python inoremap read read -p "" ANSWER<esc>F"ci"
+--    (python autocommands) autocmd FileType python inoremap ii if []; then<esc>oelse<esc>ofi<esc>2kf[ci[
+--    (python autocommands) autocmd FileType python inoremap ? RC=$?
+--    (python autocommands) autocmd FileType python inoremap NS ns=notify-send
+--    (python autocommands) autocmd FileType python inoremap DM dmenu='dmenu -m 0 -fn VictorMono:size=20 -nf green -nb black -nf green -sb black'
+--    (python autocommands) autocmd FileType python inoremap DN dun='dunstify -h int:value:'
+--    (python autocommands) autocmd FileType python inoremap e<Right> echo $()<esc>ci(
+--    (python autocommands) autocmd FileType python inoremap <leader>x :! chmod +x ./%
+--    (python autocommands) autocmd FileType python inoremap .. ${}<esc>T{i
+--    (python autocommands) autocmd FileType python inoremap <Right> alias=''<esc>i
+--    (python autocommands) autocmd FileType python inoremap fn function() {<cr>}<esc>kfn;a
+--    (python autocommands) autocmd FileType python inoremap  for<esc>odo<esc>odone<esc>O
 vim.cmd([[
   augroup _general_settings
     autocmd!
@@ -49,7 +63,7 @@ vim.cmd([[
     autocmd!
     autocmd FileType zsh inoremap bh #!/bin/bash
     autocmd FileType zsh inoremap .. ${}<esc>T{i
-    autocmd FileType zsh inoremap a<Right> alias=''<esc>i
+    autocmd FileType zsh inoremap <Right> alias=''<esc>i
     autocmd FileType zsh inoremap fn function() {<cr>}<esc>kfn;a 
     autocmd FileType zsh inoremap  for<esc>odo<esc>odone<esc>O
     autocmd FileType zsh inoremap :ca case in<esc>o;;<esc>oesac
@@ -59,7 +73,6 @@ vim.cmd([[
     autocmd FileType zsh inoremap :NS ns=notify-send
     autocmd FileType zsh inoremap :DM dmenu='dmenu -m 0 -fn VictorMono:size=20 -nf green -nb black -nf green -sb black'
     autocmd FileType zsh inoremap :DN dun='dunstify -h int:value:'
-    autocmd FileType zsh inoremap e<Right> echo $()<esc>ci(
     autocmd FileType zsh inoremap <leader>x :! chmod +x ./% 
   augroup end
 
@@ -73,28 +86,14 @@ vim.cmd([[
     autocmd FileType lua inoremap fout print()<esc>T(i""<esc>ci"
     autocmd FileType lua inoremap bh #!/bin/env lua<cr><cr><cr>
     autocmd FileType lua inoremap -x local mobdebug = require("mobdebug")<cr>mobdebug.start()<esc>Gomobdebug.done()<esc>
-    autocmd FileType lua inoremap <leader><leader>i local status_ok, = pcall(require, "")<cr>if not status_ok then<cr>return<cr>end<esc>3kf,a 
-    autocmd FileType lua inoremap <leader><leader>mi local modules = {}<cr>local <cr><cr><cr>for i, module in ipairs(modules)do<cr>local status_ok, required_module = pcall(require, module)<cr>if not status_ok then<cr>print("Could not import" .. module)<cr>return<cr>end<cr><cr>if i == 1 then<cr> = required_module<cr>end<cr>end<esc>14kci{
 
 
   augroup end
 
   augroup python
     autocmd!
-    autocmd FileType python inoremap bh #!/bin/env python
-    autocmd FileType python inoremap .. ${}<esc>T{i
-    autocmd FileType python inoremap a<Right> alias=''<esc>i
-    autocmd FileType python inoremap fn function() {<cr>}<esc>kfn;a 
-    autocmd FileType python inoremap  for<esc>odo<esc>odone<esc>O
-    autocmd FileType python inoremap :ca case in<esc>o;;<esc>oesac
-    autocmd FileType python inoremap :read read -p "" ANSWER<esc>F"ci"
-    autocmd FileType python inoremap ii if []; then<esc>oelse<esc>ofi<esc>2kf[ci[
-    autocmd FileType python inoremap :? RC=$?
-    autocmd FileType python inoremap :NS ns=notify-send
-    autocmd FileType python inoremap :DM dmenu='dmenu -m 0 -fn VictorMono:size=20 -nf green -nb black -nf green -sb black'
-    autocmd FileType python inoremap :DN dun='dunstify -h int:value:'
-    autocmd FileType python inoremap e<Right> echo $()<esc>ci(
-    autocmd FileType python inoremap <leader>x :! chmod +x ./% 
+    autocmd FileType python inoremap bh #!/bin/env python3
+    autocmd FileType python inoremap !s stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE, text=True)
   augroup end
 
   augroup sh
@@ -102,7 +101,7 @@ vim.cmd([[
     autocmd FileType sh inoremap bh #!/bin/bash 
     autocmd FileType sh inoremap bh #!/bin/bash<cr><cr>ns=notify-send<cr>dmenu='dmenu -m 0 -fn VictorMono:size=20 -nf green -nb black -nf green -sb black'<cr>dun='dunstify -h int:value:'
     autocmd FileType sh inoremap .. ${}<esc>T{i
-    autocmd FileType sh inoremap a<Right> alias=''<esc>i
+    autocmd FileType sh inoremap <Right> alias=''<esc>i
     autocmd FileType sh inoremap fn function() {<cr>}<esc>kfn;a 
     autocmd FileType sh inoremap  for<esc>odo<esc>odone<esc>O
     autocmd FileType sh inoremap :ca case in<esc>o;;<esc>oesac
@@ -112,7 +111,6 @@ vim.cmd([[
     autocmd FileType sh inoremap :NS ns=notify-send
     autocmd FileType sh inoremap :DM dmenu='dmenu -m 0 -fn VictorMono:size=20 -nf green -nb black -nf green -sb black'
     autocmd FileType sh inoremap :DN dun='dunstify -h int:value:'
-    autocmd FileType sh inoremap e<Right> echo $()<esc>ci(
     autocmd FileType sh inoremap <leader>x :! chmod +x ./% <cr>
   augroup end
 
@@ -205,8 +203,8 @@ vim.cmd([[
     autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
     autocmd FileType rust inoremap rq use reqwest;
     autocmd FileType rust inoremap sd use serde::derive;
-    autocmd FileType rust inoremap tk use tokio;
-    autocmd FileType rust inoremap !tk #[tokio::main]<esc>oasync fn main() Box<dyn std::error::Error>>{}<esc>i<cr><esc>OOk()<esc>i()<esc>O<cr><esc>O
+    "autocmd FileType rust inoremap tk use tokio;
+    "autocmd FileType rust inoremap !tk #[tokio::main]<esc>oasync fn main() Box<dyn std::error::Error>>{}<esc>i<cr><esc>OOk()<esc>i()<esc>O<cr><esc>O
     autocmd FileType rust inoremap ek use error_chain::error_chain; 
     autocmd FileType rust inoremap !ek error_chain! {}<esc>F{a<cr><esc>Oforeign_links {}<esc>F{a<cr><esc>OIo(std::io::Error);<cr>HttpRequest(reqwest::Error);<esc>V><esc>
     autocmd FileType rust nnoremap <leader><F3> :RustFmt<cr>
