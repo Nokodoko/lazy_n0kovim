@@ -194,25 +194,25 @@ vim.cmd([[
     autocmd FileType go nnoremap <F7> res, err := http.Get()<cr>if err != nil{<cr>}<esc>Olog.Fatal(err)
   augroup end
 
-  augroup rust
-  autocmd!
-    autocmd FileType rust inoremap m<Right> fn main(){}<esc>i<cr><esc>O
-    autocmd FileType rust inoremap fout println!();<space><esc>T(i
-    autocmd FileType rust inoremap <Right> String
-    autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
-    autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
-    autocmd FileType rust inoremap rq use reqwest;
-    autocmd FileType rust inoremap sd use serde::derive;
-    "autocmd FileType rust inoremap tk use tokio;
-    "autocmd FileType rust inoremap !tk #[tokio::main]<esc>oasync fn main() Box<dyn std::error::Error>>{}<esc>i<cr><esc>OOk()<esc>i()<esc>O<cr><esc>O
-    autocmd FileType rust inoremap ek use error_chain::error_chain; 
-    autocmd FileType rust inoremap !ek error_chain! {}<esc>F{a<cr><esc>Oforeign_links {}<esc>F{a<cr><esc>OIo(std::io::Error);<cr>HttpRequest(reqwest::Error);<esc>V><esc>
-    autocmd FileType rust nnoremap <leader><F3> :RustFmt<cr>
-  augroup end
+  "augroup rust
+  "autocmd!
+  "  autocmd FileType rust inoremap m<Right> fn main(){}<esc>i<cr><esc>O
+  "  autocmd FileType rust inoremap fout println!();<space><esc>T(i
+  "  autocmd FileType rust inoremap <Right> String
+  "  autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
+  "  autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
+  "  autocmd FileType rust inoremap rq use reqwest;
+  "  autocmd FileType rust inoremap sd use serde::derive;
+  "  "autocmd FileType rust inoremap tk use tokio;
+  "  "autocmd FileType rust inoremap !tk #[tokio::main]<esc>oasync fn main() Box<dyn std::error::Error>>{}<esc>i<cr><esc>OOk()<esc>i()<esc>O<cr><esc>O
+  "  autocmd FileType rust inoremap ek use error_chain::error_chain; 
+  "  autocmd FileType rust inoremap !ek error_chain! {}<esc>F{a<cr><esc>Oforeign_links {}<esc>F{a<cr><esc>OIo(std::io::Error);<cr>HttpRequest(reqwest::Error);<esc>V><esc>
+  "  autocmd FileType rust nnoremap <leader><F3> :RustFmt<cr>
+  "augroup end
 
   augroup toml
   autocmd!
-  autocmd FileType toml inoremap rq reqwest = { version = "0.11.14", features = [""] }<esc>F[la
+  autocmd FileType toml inoremap rq reqwest = { version = "0.11.14", features = ["json"] }<esc>Oserde = { version = "1", features = ["derive"] }<esc>Otokio = { version = "1", features = ["full"] }<esc>Oserde_json = "1"<esc>:w<cr>
   autocmd FileType toml inoremap sd serde = { version = "1", features = ["derive"] }
   autocmd FileType toml inoremap tk tokio = { version = "1", features = ["full"] }
   augroup end

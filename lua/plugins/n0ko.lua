@@ -7,6 +7,7 @@ return {
   { "jackMort/ChatGPT.nvim" },
   { "munifTanjim/nui.nvim" },
   { "tpope/vim-surround" },
+  { "ThePrimeagen/harpoon" },
 
   -- Configure LazyVim to load gruvbox
   {
