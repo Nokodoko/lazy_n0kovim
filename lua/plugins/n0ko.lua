@@ -7,16 +7,73 @@ return {
   { "jackMort/ChatGPT.nvim" },
   { "munifTanjim/nui.nvim" },
   { "tpope/vim-surround" },
+  { "ThePrimeagen/harpoon" },
 
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      --colorscheme = "gruvbox",
-      colorscheme = "tokyodark",
+      -- colorscheme = "catppuccin",
+      -- colorscheme = "tokyodark",
+      colorscheme = "tokyonight",
+      -- colorscheme = "nightfox",
+      -- colorscheme = "gruvbox",
     },
   },
-
+  -- {
+  --   "saghen/blink.cmp",
+  --   -- optional: provides snippets for the snippet source
+  --   dependencies = "rafamadriz/friendly-snippets",
+  --
+  --   -- use a release tag to download pre-built binaries
+  --   version = "*",
+  --   -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+  --   -- build = 'cargo build --release',
+  --   -- If you use nix, you can build from source using latest nightly rust with:
+  --   -- build = 'nix run .#build-plugin',
+  --
+  --   ---@module 'blink.cmp'
+  --   ---@type blink.cmp.Config
+  --   opts = {
+  --     -- 'default' for mappings similar to built-in completion
+  --     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+  --     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+  --     -- See the full "keymap" documentation for information on defining your own keymap.
+  --     keymap = {
+  --       preset = "none",
+  --       ["<C-p>"] = { "show", "show_documentation", "hide_documentation" },
+  --
+  --       ["<C-Up>"] = { "select_prev", "fallback" },
+  --       ["<C-Down>"] = { "select_next", "fallback" },
+  --       ["<C-l>"] = { "accept" },
+  --
+  --       ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+  --       ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+  --
+  --       ["<C-Right>"] = { "snippet_forward", "fallback" },
+  --       ["<C-Left>"] = { "snippet_backward", "fallback" },
+  --
+  --       ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+  --     },
+  --
+  --     appearance = {
+  --       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+  --       -- Useful for when your theme doesn't support blink.cmp
+  --       -- Will be removed in a future release
+  --       use_nvim_cmp_as_default = true,
+  --       -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+  --       -- Adjusts spacing to ensure icons are aligned
+  --       nerd_font_variant = "mono",
+  --     },
+  --
+  --     -- Default list of enabled providers defined so that you can extend it
+  --     -- elsewhere in your config, without redefining it, due to `opts_extend`
+  --     sources = {
+  --       default = { "lsp", "path", "snippets", "buffer" },
+  --     },
+  --   },
+  --   opts_extend = { "sources.default" },
+  -- },
   {
     "folke/trouble.nvim",
     -- opts will be merged with the parent spec
@@ -24,7 +81,7 @@ return {
   },
 
   -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
+  { "folke/trouble.nvim", enabled = true },
 
   {
     "simrat39/symbols-outline.nvim",
@@ -39,63 +96,44 @@ return {
   { import = "lazyvim.plugins.extras.ui.alpha" },
   { import = "lazyvim.plugins.extras.lang.json" },
 
-  --{
-  --  "hrsh7th/nvim-cmp",
-  --  dependencies = { "hrsh7th/cmp-emoji" },
-  --  ---@param opts cmp.ConfigSchema
-  --  opts = function(_, opts)
-  --    table.insert(opts.sources, { name = "emoji" })
-  --  end,
-  --},
-  -- Use <tab> for completion and snippets (supertab)
-  -- first: disable default <tab> and <s-tab> behavior in LuaSnip
-  --{
-  --  "L3MON4D3/LuaSnip",
-  --  keys = function()
-  --    return {}
-  --  end,
-  --},
-  ---- then: setup supertab in cmp
-  --{
-  --  "hrsh7th/nvim-cmp",
-  --  dependencies = {
-  --    "hrsh7th/cmp-emoji",
-  --  },
-  --  ---@param opts cmp.ConfigSchema
-  --  opts = function(_, opts)
-  --    local has_words_before = function()
-  --      unpack = unpack or table.unpack
-  --      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  --      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-  --    end
-
-  --    local luasnip = require("luasnip")
-  --    local cmp = require("cmp")
-
-  --    opts.mapping = vim.tbl_extend("force", opts.mapping, {
-  --      ["<Tab>"] = cmp.mapping(function(fallback)
-  --        if cmp.visible() then
-  --          cmp.select_next_item()
-  --          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-  --          -- this way you will only jump inside the snippet region
-  --        elseif luasnip.expand_or_jumpable() then
-  --          luasnip.expand_or_jump()
-  --        elseif has_words_before() then
-  --          cmp.complete()
-  --        else
-  --          fallback()
-  --        end
-  --      end, { "i", "s" }),
-  --      ["<S-Tab>"] = cmp.mapping(function(fallback)
-  --        if cmp.visible() then
-  --          cmp.select_prev_item()
-  --        elseif luasnip.jumpable(-1) then
-  --          luasnip.jump(-1)
-  --        else
-  --          fallback()
-  --        end
-  --      end, { "i", "s" }),
-  --    })
-  --  end,
-  --},
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   requires = { "hrsh7th/cmp-emoji" },
+  --   config = function()
+  --     require("cmp").setup({
+  --       sources = {
+  --         { name = "emoji" },
+  --       },
+  --       mapping = {
+  --         ["<Tab>"] = require("cmp").mapping(function(fallback)
+  --           if require("cmp").visible() then
+  --             require("cmp").select_next_item()
+  --           else
+  --             fallback()
+  --           end
+  --         end, { "i", "s" }),
+  --         ["<S-Tab>"] = require("cmp").mapping(function(fallback)
+  --           if require("cmp").visible() then
+  --             require("cmp").select_prev_item()
+  --           else
+  --             fallback()
+  --           end
+  --         end, { "i", "s" }),
+  --       },
+  --     })
+  --   end,
+  -- },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip").config.setup({
+        enable = true,
+        ext_opts = {
+          [1] = {
+            priority = 1000,
+          },
+        },
+      })
+    end,
+  },
 }

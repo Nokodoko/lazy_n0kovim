@@ -61,7 +61,7 @@ vim.cmd([[
 
   augroup zsh
     autocmd!
-    autocmd FileType zsh inoremap bh #!/bin/bash
+    autocmd FileType zsh inoremap bh #!/usr/bin/env bash
     autocmd FileType zsh inoremap .. ${}<esc>T{i
     autocmd FileType zsh inoremap <Right> alias=''<esc>i
     autocmd FileType zsh inoremap fn function() {<cr>}<esc>kfn;a 
@@ -84,7 +84,7 @@ vim.cmd([[
     autocmd FileType lua inoremap <Left> int
     autocmd FileType lua inoremap <Right> string
     autocmd FileType lua inoremap fout print()<esc>T(i""<esc>ci"
-    autocmd FileType lua inoremap bh #!/bin/env lua<cr><cr><cr>
+    autocmd FileType lua inoremap bh #!/usr/bin/env env lua<cr><cr><cr>
     autocmd FileType lua inoremap -x local mobdebug = require("mobdebug")<cr>mobdebug.start()<esc>Gomobdebug.done()<esc>
 
 
@@ -92,14 +92,14 @@ vim.cmd([[
 
   augroup python
     autocmd!
-    autocmd FileType python inoremap bh #!/bin/env python3
+    autocmd FileType python inoremap bh #!/usr/bin/env python3
     autocmd FileType python inoremap !s stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE, text=True)
   augroup end
 
   augroup sh
     autocmd!
-    autocmd FileType sh inoremap bh #!/bin/bash 
-    autocmd FileType sh inoremap bh #!/bin/bash<cr><cr>ns=notify-send<cr>dmenu='dmenu -m 0 -fn VictorMono:size=20 -nf green -nb black -nf green -sb black'<cr>dun='dunstify -h int:value:'
+    autocmd FileType sh inoremap bh #!/usr/bin/env bash 
+    autocmd FileType sh inoremap bh #!/usr/bin/env bash<cr><cr>ns=notify-send<cr>dmenu='dmenu -m 0 -fn VictorMono:size=20 -nf green -nb black -nf green -sb black'<cr>dun='dunstify -h int:value:'
     autocmd FileType sh inoremap .. ${}<esc>T{i
     autocmd FileType sh inoremap <Right> alias=''<esc>i
     autocmd FileType sh inoremap fn function() {<cr>}<esc>kfn;a 
@@ -194,25 +194,25 @@ vim.cmd([[
     autocmd FileType go nnoremap <F7> res, err := http.Get()<cr>if err != nil{<cr>}<esc>Olog.Fatal(err)
   augroup end
 
-  augroup rust
-  autocmd!
-    autocmd FileType rust inoremap m<Right> fn main(){}<esc>i<cr><esc>O
-    autocmd FileType rust inoremap fout println!();<space><esc>T(i
-    autocmd FileType rust inoremap <Right> String
-    autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
-    autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
-    autocmd FileType rust inoremap rq use reqwest;
-    autocmd FileType rust inoremap sd use serde::derive;
-    "autocmd FileType rust inoremap tk use tokio;
-    "autocmd FileType rust inoremap !tk #[tokio::main]<esc>oasync fn main() Box<dyn std::error::Error>>{}<esc>i<cr><esc>OOk()<esc>i()<esc>O<cr><esc>O
-    autocmd FileType rust inoremap ek use error_chain::error_chain; 
-    autocmd FileType rust inoremap !ek error_chain! {}<esc>F{a<cr><esc>Oforeign_links {}<esc>F{a<cr><esc>OIo(std::io::Error);<cr>HttpRequest(reqwest::Error);<esc>V><esc>
-    autocmd FileType rust nnoremap <leader><F3> :RustFmt<cr>
-  augroup end
+  "augroup rust
+  "autocmd!
+  "  autocmd FileType rust inoremap m<Right> fn main(){}<esc>i<cr><esc>O
+  "  autocmd FileType rust inoremap fout println!();<space><esc>T(i
+  "  autocmd FileType rust inoremap <Right> String
+  "  autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
+  "  autocmd FileType rust inoremap <M-Right> fn (){<cr>}<esc>k0fca 
+  "  autocmd FileType rust inoremap rq use reqwest;
+  "  autocmd FileType rust inoremap sd use serde::derive;
+  "  "autocmd FileType rust inoremap tk use tokio;
+  "  "autocmd FileType rust inoremap !tk #[tokio::main]<esc>oasync fn main() Box<dyn std::error::Error>>{}<esc>i<cr><esc>OOk()<esc>i()<esc>O<cr><esc>O
+  "  autocmd FileType rust inoremap ek use error_chain::error_chain; 
+  "  autocmd FileType rust inoremap !ek error_chain! {}<esc>F{a<cr><esc>Oforeign_links {}<esc>F{a<cr><esc>OIo(std::io::Error);<cr>HttpRequest(reqwest::Error);<esc>V><esc>
+  "  autocmd FileType rust nnoremap <leader><F3> :RustFmt<cr>
+  "augroup end
 
   augroup toml
   autocmd!
-  autocmd FileType toml inoremap rq reqwest = { version = "0.11.14", features = [""] }<esc>F[la
+  autocmd FileType toml inoremap rq reqwest = { version = "0.11.14", features = ["json"] }<esc>Oserde = { version = "1", features = ["derive"] }<esc>Otokio = { version = "1", features = ["full"] }<esc>Oserde_json = "1"<esc>:w<cr>
   autocmd FileType toml inoremap sd serde = { version = "1", features = ["derive"] }
   autocmd FileType toml inoremap tk tokio = { version = "1", features = ["full"] }
   augroup end
