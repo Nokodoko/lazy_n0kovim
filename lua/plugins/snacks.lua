@@ -294,19 +294,43 @@ return {
             --   desc = "Config",
             --   action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
             -- },
+
+            { icon = " ", key = "f", desc = "Find file", action = "<cmd> lua LazyVim.pick() <cr>" },
+            { icon = " ", key = "n", desc = "New file", action = "<cmd> ene <BAR> startinsert <cr>" },
+            {
+              icon = " ",
+              key = "r",
+              desc = "Recent files",
+              action = "<cmd> lua LazyVim.pick('oldfiles') <cr>",
+            },
+            {
+              icon = " ",
+              key = "g",
+              desc = "Find text",
+              action = "<cmd> lua LazyVim.pick('live_grep') <cr>",
+            },
+            {
+              icon = " ",
+              key = "c",
+              desc = "Config",
+              action = "<cmd> lua LazyVim.pick.config_files() <cr>",
+            },
+            {
+              icon = " ",
+              key = "s",
+              desc = "Restore Session",
+              action = "<cmd> lua require('persistence').load() <cr>",
+            },
+            { icon = " ", key = "w", desc = "VimWiki", action = "<cmd> VimwikiIndex <CR>" },
+            { icon = " ", key = "x", desc = "Lazy Extras", action = "<cmd> LazyExtras <cr>" },
+            { icon = "󰒲 ", key = "l", desc = "Lazy", action = "<cmd> Lazy <cr>" },
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-            -- { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
             { icon = " ", key = "<esc>", desc = "Quit", action = ":qa" },
+            -- { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
           },
           header = [[
-███╗   ██╗███████╗ ██████╗ ██████╗ ███████╗ █████╗ ███╗   ██╗
-████╗  ██║██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔══██╗████╗  ██║
-██╔██╗ ██║█████╗  ██║   ██║██████╔╝█████╗  ███████║██╔██╗ ██║
-██║╚██╗██║██╔══╝  ██║   ██║██╔══██╗██╔══╝  ██╔══██║██║╚██╗██║
-██║ ╚████║███████╗╚██████╔╝██████╔╝███████╗██║  ██║██║ ╚████║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝
-
-[Linkarzu.com]
+          ._ / \|  _   o._ _  
+          | |\_/|<(_)\/|| | | 
         ]],
         },
       },

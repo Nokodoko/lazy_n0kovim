@@ -52,7 +52,7 @@ keymap("n", "<F4>", "j", opts)
 
 --HARPOON
 --ADD MARK
-keymap("n", "<leader>1", ':lua require("harpoon.mark").add_file()<cr>', opts)
+-- keymap("n", "<leader>1", ':lua require("harpoon.mark").add_file()<cr>', opts)
 -- keymap("n", "<leader>1", ':lua require("harpoon.mark").add_file(1)', opts)
 -- keymap("n", "<leader>2", ':lua require("harpoon.mark").add_file(2)<cr>', opts)
 -- keymap("n", "<leader>3", ':lua require("harpoon.mark").add_file(3)<cr>', opts)
@@ -61,9 +61,10 @@ keymap("n", "<leader>1", ':lua require("harpoon.mark").add_file()<cr>', opts)
 --FILE NAVIGATION
 -- keymap("n", "<leader>j", ':lua require("harpoon.ui").nav_file(1)<cr>', opts)
 -- keymap("n", "<leader>j", tostring(harpoon_add()), opts)
-keymap("n", "<leader>k", ':lua require("harpoon.ui").nav_file(2)<cr>', opts)
-keymap("n", "<leader>;", ':lua require("harpoon.ui").nav_file(3)<cr>', opts)
-keymap("n", "<leader>;", ':lua require("harpoon.ui").nav_file(4)<cr>', opts)
+-- keymap("n", "<leader>1", ':lua require("harpoon.ui").nav_file(1)<cr>', opts)
+-- keymap("n", "<leader>2", ':lua require("harpoon.ui").nav_file(2)<cr>', opts)
+-- keymap("n", "<leader>3", ':lua require("harpoon.ui").nav_file(3)<cr>', opts)
+-- keymap("n", "<leader>4", ':lua require("harpoon.ui").nav_file(4)<cr>', opts)
 
 -- VISUAL BLOCK --
 -- Move text up and down
@@ -80,11 +81,21 @@ keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 --TELESCOPE FUNCTIONS
 keymap("n", "<leader>?", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
+keymap("n", "<leader>tr", "<cmd>Telescope registers theme=ivy<cr>", opts)
 keymap("n", "<Up>", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 keymap("n", "<leader>gr", "<cmd>Telescope lsp_references theme=ivy<cr>", opts)
 keymap("n", "<leader>gd", "<cmd>Telescope lsp_definitions<cr>", opts)
 keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>th", "<cmd>Telescope harpoon marks<cr>", opts)
+
+-- TABS
+keymap("n", "<leader>tn", "<cmd>tabnew<cr>", opts)
+
+-- DAD-BOD
+keymap("n", "<leader>dd", "<cmd>DBUI<cr>", opts)
+keymap("n", "<leader>da", "<cmd>DBUIAddConnection<cr>", opts)
+keymap("n", "<leader>db", "<cmd>DB<cr>", opts)
+keymap("n", "<leader>dc", "<cmd>DBUIClose<cr>", opts)
 
 --Chatgpt
 --keymap("n", "<leader>c", ":ChatGPTRunCustomCodeAction<cr>", opts)

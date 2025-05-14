@@ -274,7 +274,7 @@ return {
 
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
-      ["<C-l>"] = { "accept", "select_and_accept" },
+      ["<C-l>"] = { "select_and_accept", "select_and_accept" },
 
       ["<S-k>"] = { "scroll_documentation_up", "fallback" },
       ["<S-j>"] = { "scroll_documentation_down", "fallback" },

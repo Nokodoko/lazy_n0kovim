@@ -94,6 +94,7 @@ vim.cmd([[
     autocmd!
     autocmd FileType python inoremap bh #!/usr/bin/env python3
     autocmd FileType python inoremap !s stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE, text=True)
+    autocmd FileType python inoremap Ff # vim: set fdm=marker fdl=0 foldmethod=marker foldlevel=0:
   augroup end
 
   augroup sh
@@ -124,7 +125,9 @@ vim.cmd([[
     autocmd FileType go inoremap pout println();space><esc>T(i
     autocmd FileType go inoremap lout log.Println()<space><esc>T(i
     autocmd FileType go inoremap iu ioutil.
-    autocmd FileType go inoremap lof log.Printf()<space><esc>T(i
+    autocmd FileType go inoremap lout log.Printf()<space><esc>T(i
+    autocmd FileType go inoremap lof log.Fatal()<space><esc>T(i
+    autocmd FileType go inoremap lop log.Println()<space><esc>T(i
     autocmd FileType go inoremap scan fmt.Scanln()<space><esc>T(i
     autocmd FileType go inoremap fout fmt.Println()<space><esc>T(i
     autocmd FileType go inoremap fof fmt.Printf()<space><esc>T(i

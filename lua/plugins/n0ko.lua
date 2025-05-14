@@ -8,14 +8,16 @@ return {
   { "munifTanjim/nui.nvim" },
   { "tpope/vim-surround" },
   { "ThePrimeagen/harpoon" },
+  -- { "garyburd/go-explorer" },
+  { "nvim-telescope/telescope-frecency.nvim" },
 
   -- Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "catppuccin",
+      colorscheme = "catppuccin",
       -- colorscheme = "tokyodark",
-      colorscheme = "tokyonight",
+      -- colorscheme = "tokyonight",
       -- colorscheme = "nightfox",
       -- colorscheme = "gruvbox",
     },
@@ -89,11 +91,21 @@ return {
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     config = true,
   },
-
+  -- SNACKS FLOATING BEHAVIOR
+  {
+    "folke/snacks.nvim",
+    opts = {
+      terminal = {
+        win = {
+          position = "float",
+        },
+      },
+    },
+  },
+  -- \SNACKS FLOATING BEHAVIOR
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
   { import = "lazyvim.plugins.extras.lang.typescript" },
-  { import = "lazyvim.plugins.extras.ui.alpha" },
   { import = "lazyvim.plugins.extras.lang.json" },
 
   -- {
